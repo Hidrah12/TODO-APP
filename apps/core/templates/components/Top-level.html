@@ -1,0 +1,12 @@
+{% load crispy_forms_tags %}
+<div id="menu-task" class="flex items-center justify-center bg-slate-700/20 w-[100%] h-[100%] fixed z-40 invisible">
+	<div class="bg-white w-[50%] h-[40%] absolute rounded-md">
+		<div class="text-2xl p-2 text-slate-700 float-right text hover:text-slate-800">
+			<button title="Cancel" onclick="closeMenuTask()"><i class="fa-solid fa-circle-xmark"></i></button>
+		</div>
+		<form action="" method="post" class="p-5"> {% csrf_token %}
+			{{task_form | crispy}}
+			<input type="submit" class="my-2 bg-purple-600 hover:bg-purple-700 rounded-md py-2 text-white cursor-pointer" value="Add Task" title="Add Task">
+		</form>
+	</div>
+</div>

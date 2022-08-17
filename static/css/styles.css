@@ -1,0 +1,33 @@
+label {
+	display: none;
+}
+input {
+	width: 100%;
+}
+#id_name {
+	font-family: 'Roboto';
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: rgb(80, 80, 80);
+}
+#id_name:focus {
+	outline: 1px solid rgb(196, 196, 196);
+}
+
+
+#id_difficulty {
+	display: none;
+}
+
+#id_summary {
+	font-family: 'Roboto';
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: rgb(80, 80, 80);
+	width: 100%;
+	margin-top: 10px;
+	height: 100px;
+}
+#id_summary:focus {
+	outline: 1px solid rgb(196, 196, 196);	
+}
