@@ -19,3 +19,22 @@ function closeMenuTask() {
 		menuTask.classList.replace('visible', 'invisible')
 	}
 }
+
+function importants() {
+	document.getElementById('task-list').style.display = 'none'
+	let options = document.getElementsByClassName('option')
+	Array.from(options).forEach(element => {
+		element.classList.replace('border-b-2', 'border-none')
+	})
+	let importants = document.getElementById('importants')
+	importants.className = 'option p-6 border-b-2 border-purple-700'
+}
+function tasks() {
+	document.getElementById('task-list').style.display = 'block'
+	let options = document.getElementsByClassName('option')
+	Array.from(options).forEach(element => {
+		element.classList.replace('border-b-2', 'border-none')
+	})
+	let tasks = document.getElementById('tasks')
+	tasks.className = 'option p-6 border-b-2 border-purple-700'	
+}
