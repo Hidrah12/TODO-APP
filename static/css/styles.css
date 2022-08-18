@@ -4,6 +4,9 @@ label {
 input {
 	width: 100%;
 }
+#checkbox {
+	width: 3%;
+}
 #id_name {
 	font-family: 'Roboto';
 	padding: 10px 15px;
@@ -13,12 +16,9 @@ input {
 #id_name:focus {
 	outline: 1px solid rgb(196, 196, 196);
 }
-
-
 #id_difficulty {
 	display: none;
 }
-
 #id_summary {
 	font-family: 'Roboto';
 	padding: 10px 15px;
@@ -30,4 +30,14 @@ input {
 }
 #id_summary:focus {
 	outline: 1px solid rgb(196, 196, 196);	
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+    background-color: rgb(170, 170, 170);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(64, 25, 99);
+    border-radius: 10px;
 }

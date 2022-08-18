@@ -5,6 +5,7 @@ from django.db import models
 class Task(models.Model):
 	name = models.CharField(max_length=50)
 	summary = models.TextField(blank=True, null=True)
+	important = models.CharField(max_length=5)
 	user_id = models.CharField(max_length=100, db_index=True)
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
