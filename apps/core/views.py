@@ -17,7 +17,6 @@ def home_view(request):
 			if task_form.is_valid():
 				task = Task.objects.create(
 					name = task_form.cleaned_data['name'],
-					difficulty = task_form.cleaned_data['difficulty'], 
 					description = task_form.cleaned_data['summary'],
 					user_id = request.session['user']['id']
 				)
