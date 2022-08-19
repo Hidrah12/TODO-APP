@@ -1,8 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .form import TaskForm
 from .models import Task
 from uuid import uuid1
-from .form import TaskForm
-from django.urls import reverse
+
+def checkImportant(req):
+	important = ''
+	try:
+		important = req.POST['important']
+	except:
+		important = 'false'
+	return important
 
 def home_view(request):
 	session = request.session
@@ -12,37 +19,40 @@ def home_view(request):
 			'id': uuid1().urn
 		}
 	if user:
+		tasks = Task.objects.filter(user_id = request.session['user']['id']).order_by('-id')
 		if request.method == 'POST':
 			task_form = TaskForm(request.POST)
 			if task_form.is_valid():
-				task = Task.objects.create(
+				Task.objects.create(
 					name = task_form.cleaned_data['name'],
 					summary = task_form.cleaned_data['summary'],
-					important = request.POST['important'],
+					important = checkImportant(request),
 					user_id = request.session['user']['id']
 				)
 				task_form = TaskForm()
-				tasks = Task.objects.filter(user_id = request.session['user']['id'])
 				context_data = {
 					'task_form': task_form,
 					'tasks': tasks
 				}
-				return render(request, 'index.html', context_data)
+				return redirect('/')
 			else:
 				task_form = TaskForm(request.POST)
-				tasks = Task.objects.filter(user_id = request.session['user']['id'])
 				context_data = {
 					'task_form': task_form,
 					'tasks': tasks
 				}
-				return render(request, 'index.html', context_data)
-			
+				return redirect('/')
+
 	task_form = TaskForm()
-	tasks = Task.objects.filter(user_id = request.session['user']['id']).order_by('-id')
-	tasks_important = Task.objects.filter(important = 'true')
 	context_data = {
 		'task_form': task_form,
-		'tasks': tasks,
-		'tasks_important': tasks_important
+		'tasks': tasks
 	}
 	return render(request, 'index.html', context_data)
+
+def delete_task(request, id):
+	if request.method == 'POST':
+		task = Task.objects.filter(id = id).first()
+		if task:
+			task.delete()
+	return redirect('/')
