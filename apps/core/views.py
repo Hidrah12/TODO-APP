@@ -38,7 +38,7 @@ def home_view(request):
 				return render(request, 'index.html', context_data)
 			
 	task_form = TaskForm()
-	tasks = Task.objects.filter(user_id = request.session['user']['id'])
+	tasks = Task.objects.filter(user_id = request.session['user']['id']).order_by('-id')
 	tasks_important = Task.objects.filter(important = 'true')
 	context_data = {
 		'task_form': task_form,

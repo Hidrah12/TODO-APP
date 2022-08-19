@@ -1,14 +1,14 @@
 {% load crispy_forms_tags %}
-<div id="menu-task" class="flex items-center justify-center bg-slate-700/20 w-[100%] h-[100%] fixed z-40 invisible">
-	<div class="bg-white w-[50%] h-[50%] absolute rounded-md">
+<div id="menu-task" class="flex items-center justify-center bg-slate-700/50 w-[100%] h-[100%] fixed z-40 invisible">
+	<div class="bg-white w-[50%] md:w-[100%] h-[50%] bsm:h-[55%] absolute rounded-md">
 		<div class="text-2xl p-2 text-slate-700 float-right text hover:text-slate-800">
-			<button title="Cancel" onclick="closeMenuTask()"><i class="fa-solid fa-circle-xmark"></i></button>
+			<button title="Cancel" onclick="closeMenuTask()"><i class="fa-solid fa-circle-xmark bsm:text-lg"></i></button>
 		</div>
 		<form action="" method="post" class="p-5"> {% csrf_token %}
 			{{task_form | crispy}}
 			<div class="flex space-x-2 border-b-[1px] border-t-[1px] mt-2">
 				<input type="checkbox" name="important" value="true" id="checkbox" class="my-5 cursor-pointer">
-				<span class="text-rose-600 font-['Roboto'] my-5 font-medium">Important*</span>
+				<span class="text-rose-500 font-['Roboto'] my-5 font-medium">Important*</span>
 			</div>
 			<input type="submit" class="my-2 bg-purple-600 hover:bg-purple-700 rounded-md py-2 text-white cursor-pointer" value="Add Task" title="Add Task">
 		</form>

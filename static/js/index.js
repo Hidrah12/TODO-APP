@@ -31,7 +31,7 @@ function importants() {
 		element.classList.replace('border-b-2', 'border-none')
 	})
 	let importants = document.getElementById('importants')
-	importants.className = 'option p-6 border-b-2 border-purple-700'
+	importants.className = 'option p-6 bsm:p-4 border-b-2 border-purple-700'
 	let task_important = document.getElementById('task-list-important').style.display = 'block'
 }
 function tasks() {
@@ -42,5 +42,5 @@ function tasks() {
 		element.classList.replace('border-b-2', 'border-none')
 	})
 	let tasks = document.getElementById('tasks')
-	tasks.className = 'option p-6 border-b-2 border-purple-700'	
+	tasks.className = 'option p-6 bsm:p-4 border-b-2 border-purple-700'	
 }
