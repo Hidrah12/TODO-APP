@@ -1,10 +1,17 @@
+{% load static %}
 <div class="flex items-center justify-center h-[100vh] bg-slate-50/75">
 	<section class="w-[650px] md:w-[100%] h-[500px] md:h-[100vh] bg-white shadow-2xl rounded-md relative overflow-y-auto">
-		<ul class="flex items-center space-x-8 bsm:space-x-0 font-semibold text-base text-slate-700 border-b-[1px]">
+		<div class="bg-slate-100/40 p-4">
+			<a href="{% url 'home' %}" class="flex space-x-2 items-center">
+				<img src="{% static 'images/logo-streckt.png' %}" alt="Logo streckt" class="w-8">
+				<span class="font-semibold font-['Open Sans'] text-[#3f3636]">Streckt</span>
+			</a>
+		</div>
+		<ul class="flex relative items-center space-x-8 bsm:space-x-0 font-semibold text-base text-slate-700 border-b-[1px]">
 			<li class="option p-6 bsm:p-6" id="importants"><button onclick="importants()" class="bsm:text-base">Importants</button> <span id="total-task-important" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
 			<li class="option p-6 bsm:p-6 border-b-2 border-purple-700" id="tasks"><button onclick="tasks()" class="bsm:text-base">Tasks</button> <span id="total-task" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
+			<button onclick="addNewTask()" title="Add Task" class="text-slate-600 group text-lg font-normal absolute top-0 right-0 p-6 bsm:p-6">New task <i class="fa-solid fa-circle-plus text-slate-600 group-hover:text-slate-800"></i></button>
 		</ul>
-		<button onclick="addNewTask()" title="Add Task" class="text-slate-600 group text-lg font-normal absolute top-0 right-0 p-6 bsm:p-6">New task <i class="fa-solid fa-circle-plus text-slate-600 group-hover:text-slate-800"></i></button>
 		{% if tasks %}
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list">
 				{% for task in tasks %}
