@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect
-from .form import TaskForm
+from .form import TaskForm, TaskFormUpdate
 from .models import Task
 from uuid import uuid1
 
-def checkImportant(req):
+def checkImportant(req, update):
 	important = ''
 	try:
-		important = req.POST['important']
+		if update == True:
+			important = req.POST['important_update']	
+		else: 
+			important = req.POST['important']
 	except:
 		important = 'false'
 	return important
@@ -26,7 +29,7 @@ def home_view(request):
 				Task.objects.create(
 					name = task_form.cleaned_data['name'],
 					summary = task_form.cleaned_data['summary'],
-					important = checkImportant(request),
+					important = checkImportant(request, False),
 					user_id = request.session['user']['id']
 				)
 				task_form = TaskForm()
@@ -44,8 +47,10 @@ def home_view(request):
 				return redirect('/')
 
 	task_form = TaskForm()
+	task_form_update = TaskFormUpdate()
 	context_data = {
 		'task_form': task_form,
+		'task_form_update': task_form_update,
 		'tasks': tasks
 	}
 	return render(request, 'index.html', context_data)
@@ -56,3 +61,16 @@ def delete_task(request, id):
 		if task:
 			task.delete()
 	return redirect('/')
+
+def update_task(request, id):
+	if request.method == 'POST':
+		task_form_update = TaskFormUpdate(request.POST)
+		if task_form_update.is_valid():
+			task = Task.objects.get(id = id)
+			print(task_form_update.cleaned_data)
+			task.name = task_form_update.cleaned_data['name']
+			task.summary = task_form_update.cleaned_data['summary']
+			task.important = checkImportant(request, True)
+			task.save()
+	return redirect('/')
+

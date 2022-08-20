@@ -27,6 +27,7 @@ LOCAL_APPS = [
 ]
 THIRD_APPS = [
     'crispy_forms',
+    'rest_framework',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -1,0 +1,16 @@
+{% load crispy_forms_tags %}
+<div id="menu-task-update" class="flex items-center justify-center bg-slate-700/50 w-[100%] h-[100%] fixed z-40 invisible">
+	<div class="bg-white w-[50%] md:w-[100%] absolute rounded-md">
+		<div class="text-2xl p-2 text-slate-700 float-right text hover:text-slate-800">
+			<button title="Cancel" onclick="closeMenuTaskUpdate()"><i class="fa-solid fa-circle-xmark text-xl"></i></button>
+		</div>
+		<form action="" method="post" class="p-5" id="form_update"> {% csrf_token %}
+			{{task_form_update | crispy}}
+			<div class="flex space-x-2 border-b-[1px] border-t-[1px] mt-2">
+				<input type="checkbox" name="important_update" value="true" id="checkbox_update" class="my-5 cursor-pointer">
+				<span class="text-rose-500 font-['Roboto'] my-5 font-medium">Important*</span>
+			</div>
+			<input type="submit" class="my-2 bg-purple-600 hover:bg-purple-700 rounded-md py-2 text-white cursor-pointer" value="Update Task" title="Update Task">
+		</form>
+	</div>
+</div>

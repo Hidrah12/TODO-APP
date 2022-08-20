@@ -9,7 +9,7 @@
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list">
 				{% for task in tasks %}
 					{% if task.important == "false" %}
-						<li class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+						<li onclick="detailTask({{task.id}})" class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<div class="mb-2">
 								<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
 								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
@@ -27,7 +27,7 @@
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list-important" style="display: none;">
 				{% for task in tasks %}
 					{% if task.important == "true" %}
-						<li class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+						<li onclick="detailTask({{task.id}})" class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<div class="mb-2">
 								<h3 class="name-important text-lg font-['Roboto']">{{task.name}}</h3>
 								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>

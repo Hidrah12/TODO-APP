@@ -7,6 +7,9 @@ input {
 #checkbox {
 	width: 3%;
 }
+#checkbox_update {
+	width: 3%;
+}
 @media screen and (max-width: 540px ) {
 	#checkbox {
 		width: 5%;
@@ -21,9 +24,6 @@ input {
 #id_name:focus {
 	outline: 1px solid rgb(196, 196, 196);
 }
-#id_difficulty {
-	display: none;
-}
 #id_summary {
 	font-family: 'Roboto';
 	padding: 10px 15px;
@@ -36,7 +36,27 @@ input {
 #id_summary:focus {
 	outline: 1px solid rgb(196, 196, 196);	
 }
-
+#input_name {
+	font-family: 'Roboto';
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: rgb(80, 80, 80);
+}
+#input_name:focus {
+	outline: 1px solid rgb(196, 196, 196);
+}
+#text_summary {
+	font-family: 'Roboto';
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: rgb(80, 80, 80);
+	width: 100%;
+	margin-top: 10px;
+	height: 100px;
+}
+#text_summary:focus {
+	outline: 1px solid rgb(196, 196, 196);	
+}
 ::-webkit-scrollbar {
     width: 8px;
     border-radius: 10px;
