@@ -29,7 +29,7 @@
 					{% if task.important == "true" %}
 					<li class="flex items-center justify-between my-6">
 						<div onclick="detailTask({{task.id}})" class="w-[95%] p-4 my-4 rounded-md cursor-pointer group relative first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
-							<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
+							<h3 class="name-important text-lg font-['Roboto']">{{task.name}}</h3>
 							<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
 							<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.modified}}</span>
 						</div>
