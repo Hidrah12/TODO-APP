@@ -4,7 +4,7 @@
 			<li class="option p-6 bsm:p-4" id="importants"><button onclick="importants()" class="bsm:text-base">Importants</button> <span id="total-important" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
 			<li class="option p-6 bsm:p-4 border-b-2 border-purple-700" id="tasks"><button onclick="tasks()" class="bsm:text-base">Tasks</button> <span id="contador" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
 		</ul>
-		<button onclick="addNewTask()" title="Add Task" class="text-slate-600 group font-normal absolute top-0 right-0 p-6 bsm:p-4">New task <i class="fa-solid fa-circle-plus text-slate-600 group-hover:text-slate-800"></i></button>
+		<button onclick="addNewTask()" title="Add Task" class="text-slate-600 group text-lg font-normal absolute top-0 right-0 p-6 bsm:p-4">New task <i class="fa-solid fa-circle-plus text-slate-600 group-hover:text-slate-800"></i></button>
 		{% if tasks %}
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list">
 				{% for task in tasks %}
