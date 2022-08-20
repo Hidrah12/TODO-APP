@@ -4,9 +4,9 @@ let description = document.getElementById('id_summary')
 description.placeholder = 'Description'
 
 let names = document.getElementsByClassName('name')
-let contador = document.getElementById('contador').innerHTML = names.length
+document.getElementById('total-task').innerHTML = names.length
 let important_tasks = document.getElementsByClassName('name-important')
-document.getElementById('total-important').innerHTML = important_tasks.length
+document.getElementById('total-task-important').innerHTML = important_tasks.length
 
 function addNewTask() {
 	let menuTask = document.getElementById('menu-task')

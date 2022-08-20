@@ -4,16 +4,9 @@ label {
 input {
 	width: 100%;
 }
+/* Estilos del formulario para agregar nueva tarea */
 #checkbox {
 	width: 3%;
-}
-#checkbox_update {
-	width: 3%;
-}
-@media screen and (max-width: 540px ) {
-	#checkbox {
-		width: 5%;
-	}
 }
 #id_name {
 	font-family: 'Roboto';
@@ -36,6 +29,7 @@ input {
 #id_summary:focus {
 	outline: 1px solid rgb(196, 196, 196);	
 }
+/* Estilos del formulario para actualizar las tareas */
 #input_name {
 	font-family: 'Roboto';
 	padding: 10px 15px;
@@ -57,6 +51,15 @@ input {
 #text_summary:focus {
 	outline: 1px solid rgb(196, 196, 196);	
 }
+#checkbox_update {
+	width: 3%;
+}
+@media screen and (max-width: 540px ) {
+	#checkbox {
+		width: 5%;
+	}
+}
+/* Estilos de la barra de scroll */
 ::-webkit-scrollbar {
     width: 8px;
     border-radius: 10px;
