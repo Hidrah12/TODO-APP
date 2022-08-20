@@ -13,7 +13,7 @@
 							<div onclick="detailTask({{task.id}})" class="w-[95%] p-4 my-4 rounded-md cursor-pointer group relative first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 								<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
 								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
-								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
+								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.modified}}</span>
 							</div>
 							<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
 								<button class="" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700 hover:text-slate-800"></i></button>
@@ -31,7 +31,7 @@
 						<div onclick="detailTask({{task.id}})" class="w-[95%] p-4 my-4 rounded-md cursor-pointer group relative first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
 							<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
-							<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
+							<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.modified}}</span>
 						</div>
 						<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
 							<button title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700 hover:text-slate-800"></i></button>
