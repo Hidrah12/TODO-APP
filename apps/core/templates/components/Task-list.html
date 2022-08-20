@@ -1,19 +1,19 @@
 <div class="flex items-center justify-center h-[100vh] bg-slate-50/75">
 	<section class="w-[650px] md:w-[100%] h-[500px] md:h-[100vh] bg-white shadow-2xl rounded-md relative overflow-y-auto">
 		<ul class="flex items-center space-x-8 bsm:space-x-0 font-semibold text-base text-slate-700 border-b-[1px]">
-			<li class="option p-6 bsm:p-4" id="importants"><button onclick="importants()" class="bsm:text-sm">Importants</button> <span id="total-important" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
-			<li class="option p-6 bsm:p-4 border-b-2 border-purple-700" id="tasks"><button onclick="tasks()" class="bsm:text-sm">Tasks</button> <span id="contador" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
+			<li class="option p-6 bsm:p-4" id="importants"><button onclick="importants()" class="bsm:text-base">Importants</button> <span id="total-important" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
+			<li class="option p-6 bsm:p-4 border-b-2 border-purple-700" id="tasks"><button onclick="tasks()" class="bsm:text-base">Tasks</button> <span id="contador" class="px-[8px] py-[2px] text-base text-purple-500 bg-gray-100 rounded-[50%]">0</span></li>
 		</ul>
 		<button onclick="addNewTask()" title="Add Task" class="text-slate-600 group font-normal absolute top-0 right-0 p-6 bsm:p-4">New task <i class="fa-solid fa-circle-plus text-slate-600 group-hover:text-slate-800"></i></button>
 		{% if tasks %}
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list">
 				{% for task in tasks %}
 					{% if task.important == "false" %}
-						<li class="p-2 my-2 group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+						<li class="p-4 my-2 bg-slate-50 rounded-md group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<div class="mb-2">
-								<h3 class="name text-lg bsm:text-base font-['Roboto']">{{task.name}}</h3>
-								<p class="text-base bsm:text-sm text-slate-400 font-['Open Sans']">{{task.summary}}</p>
-								<span class="text-sm bsm:text-xs text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
+								<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
+								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
+								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
 							</div>
 							<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
 								<button class="invisible group-hover:visible" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700"></i></button>
@@ -27,11 +27,11 @@
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list-important" style="display: none;">
 				{% for task in tasks %}
 					{% if task.important == "true" %}
-						<li class="p-2 my-2 group flex items-center justify-between space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+						<li class="p-4 my-2 bg-slate-50 rounded-md group flex items-center justify-between space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<div class="mb-2">
-								<h3 class="name-important text-lg bsm:text-base font-['Roboto']">{{task.name}}</h3>
-								<p class="text-base bsm:text-sm text-slate-400 font-['Open Sans']">{{task.summary}}</p>
-								<span class="text-sm bsm:text-xs text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
+								<h3 class="name-important text-lg font-['Roboto']">{{task.name}}</h3>
+								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
+								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
 							</div>
 							<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
 								<button class="invisible group-hover:visible" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700"></i></button>
