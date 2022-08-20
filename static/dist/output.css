@@ -638,6 +638,10 @@ video {
   width: 650px;
 }
 
+.w-\[95\%\] {
+  width: 95%;
+}
+
 .w-\[100\%\] {
   width: 100%;
 }
@@ -735,6 +739,11 @@ video {
 .bg-slate-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
 .bg-slate-700\/50 {

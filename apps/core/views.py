@@ -45,7 +45,6 @@ def home_view(request):
 					'tasks': tasks
 				}
 				return redirect('/')
-
 	task_form = TaskForm()
 	task_form_update = TaskFormUpdate()
 	context_data = {
@@ -55,22 +54,20 @@ def home_view(request):
 	}
 	return render(request, 'index.html', context_data)
 
-def delete_task(request, id):
-	if request.method == 'POST':
-		task = Task.objects.filter(id = id).first()
-		if task:
-			task.delete()
-	return redirect('/')
-
-def update_task(request, id):
+def update_task_view(request, id):
 	if request.method == 'POST':
 		task_form_update = TaskFormUpdate(request.POST)
 		if task_form_update.is_valid():
 			task = Task.objects.get(id = id)
-			print(task_form_update.cleaned_data)
 			task.name = task_form_update.cleaned_data['name']
 			task.summary = task_form_update.cleaned_data['summary']
 			task.important = checkImportant(request, True)
 			task.save()
 	return redirect('/')
 
+def delete_task_view(request, id):
+	if request.method == 'POST':
+		task = Task.objects.filter(id = id).first()
+		if task:
+			task.delete()
+	return redirect('/')

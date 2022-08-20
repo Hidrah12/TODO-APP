@@ -9,16 +9,18 @@
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list">
 				{% for task in tasks %}
 					{% if task.important == "false" %}
-						<li onclick="detailTask({{task.id}})" class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
-							<div class="mb-2">
-								<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
-								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
-								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
-							</div>
+						<div class="flex items-center justify-between">
+							<li onclick="detailTask({{task.id}})" class="w-[95%] p-4 my-4 rounded-md cursor-pointer group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+								<div class="mb-2">
+									<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
+									<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
+									<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
+								</div>
+							</li>
 							<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
-								<button class="invisible group-hover:visible" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700"></i></button>
+								<button class="" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700 hover:text-slate-800"></i></button>
 							</form>
-						</li>
+						</div>
 					{% endif %}
 				{% endfor %}
 			</ul>
@@ -27,16 +29,18 @@
 			<ul class="px-10 py-6 bsm:px-8 bsm:py-4 xr:px-4 relative" id="task-list-important" style="display: none;">
 				{% for task in tasks %}
 					{% if task.important == "true" %}
-						<li onclick="detailTask({{task.id}})" class="p-4 my-4 bg-slate-50 rounded-md group flex items-center justify-between space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
+					<div class="flex items-center justify-between">
+						<li onclick="detailTask({{task.id}})" class="w-[95%] p-4 my-4 rounded-md cursor-pointer group flex items-center justify-between relative space-x-5 first:my-0 border-b-[1px] border-b-slate-200 last:border-none">
 							<div class="mb-2">
-								<h3 class="name-important text-lg font-['Roboto']">{{task.name}}</h3>
+								<h3 class="name text-lg font-['Roboto']">{{task.name}}</h3>
 								<p class="text-base text-slate-400 font-['Open Sans']">{{task.summary}}</p>
 								<span class="text-sm text-rose-600 font-medium"><i class="fa-solid fa-calendar-days pr-2"></i> {{task.created}}</span>
 							</div>
-							<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
-								<button class="invisible group-hover:visible" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700"></i></button>
-							</form>
 						</li>
+						<form action="{% url 'delete-task' task.id %}" method="post"> {% csrf_token %}
+							<button class="" title="Delete task"><i class="fa-solid fa-trash text-lg text-slate-700 hover:text-slate-800"></i></button>
+						</form>
+					</div>
 					{% endif %}
 				{% endfor %}
 			</ul>

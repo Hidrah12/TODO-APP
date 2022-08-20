@@ -11,8 +11,5 @@ def task_api_view(request, id):
 		if task:
 			task_serializer = TaskSerializer(task)
 			return Response(task_serializer.data, status = status.HTTP_200_OK)
-	elif request.method == 'PUT':
-		print(request.body)
-		return Response(status = status.HTTP_200_OK)
 	else:
 		return Response(status = status.HTTP_405_METHOD_NOT_ALLOWED)
